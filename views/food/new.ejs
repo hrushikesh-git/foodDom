@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+<div class ="container">
+<h1>
+	New Post
+</h1>
+	
+<form action="/foodpost" method="post">
+       <input class="form-control" type="text" name="name" placeholder="foodname">
+  
+       <input class="form-control" type="text" name="image" placeholder="url"> 
+       <input class="form-control" type="text" name="location" placeholder="Place"> 
+       <input class="form-control" type="text" name="description" placeholder="description"> 
+       
+       <input class="btn btn-primary" type="submit">
+   </form>
+</div>
+    
+<a href="/foodpost">GoBack!</a>
+<%- include("../partials/footer") %>

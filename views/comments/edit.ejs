@@ -1,0 +1,15 @@
+<%- include("../partials/header") %>
+<div class ="container">
+<h1>
+	Edit Comment 
+</h1>
+	
+<form action="/foodpost/<%=foodpost_id%>/comments/<%=comment._id%>?_method=PUT" method="POST">
+       <input class="form-control" type="text" name="comment[text]" value="<%=comment.text%>"> 
+       
+       <input class="btn btn-primary" type="submit">
+   </form>
+</div>
+    
+<a href="/foodpost">GoBack!</a>
+<%- include("../partials/footer") %>

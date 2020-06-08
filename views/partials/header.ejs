@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FoodDom</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+<body>
+	<div class="container">
+		
+	<ul class="nav nav-pills">
+  <li class="nav-item">
+	  <i class="fas fa-pizza-slice"></i>
+    <a class="nav-link active" href="/">FoodDom</a>
+  </li>
+<% if(!currentUser){ %>
+  <li class="nav-item">
+    <a class="nav-link" href="/login">Login<i class="fa fa-at"></i></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/register">Signup<i class="fa fa-thumbs-o-up"></i></a>
+  </li>
+	<%}else{%>
+  <li class="nav-item">
+    <a class="nav-link" href="/logout">Logout</a>
+  </li>
+<li class="nav-item">
+    <a class="nav-link " href="#">Signed In As <%= currentUser.username %></a>
+  </li>
+	<%}%>
+</ul>
+<%if(error && error.length > 0) {%>
+<div class="alert alert-danger" role="alert">
+  <%= error%>
+</div>
+<%}%>
+<%if(success && success.length > 0) {%>
+<div class="alert alert-success" role="alert">
+  <%= success%>
+</div>
+<%}%>
+	</div>

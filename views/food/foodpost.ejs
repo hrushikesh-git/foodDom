@@ -1,0 +1,29 @@
+<%- include("../partials/header") %>
+	<div class="jumbotron jumbotron-fluid container">
+  <div class="container">
+    <h1 class="display-4">Get Best of Best food Review</h1>
+    <p class="lead">Search for your favfood and their location if not U should add one.Post review and food ratings made fun</p>
+    <a class="btn btn-outline-info" style="border-radius: 20px;" href="/foodpost/new">Add Post</a>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3">
+
+<%foods.forEach(function(food){%>
+
+  <div class="col mb-4 ">
+    <div class="card">
+      <img src="<%= food.image %>" class="card-img-top" >
+      <div class="card-body">
+        <h5 class="card-title"><%=food.name%></h5>
+        <p class="card-text"><h5><%= food.location %> </h5>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		<a href="/foodpost/<%=food._id%>" class="btn btn-outline-info float-right">Show</a>
+      </div>
+    </div>
+  </div>
+<%})%>
+</div>
+	
+
+<a href="/" class="btn btn-dark" style="border-radius: 20px;">goback</a>
+<%- include("../partials/footer") %>

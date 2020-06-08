@@ -1,0 +1,91 @@
+<%- include("../partials/header") %>
+<div class="container">
+<div class="row">
+	<div class="col-md-3">
+		<p class="lead">FoodDom</p>
+            <div class="list-group">
+                <li class="list-group-item active">Location</li>
+                <li class="list-group-item"><%= food.location %></li>
+                <li class="list-group-item">BY:-<%=food.author.username%></li>
+            </div>
+	</div>
+	<div class="col-md-9">
+		<div class="thumbnail">
+			<img src="<%= food.image %>" alt="" class="img-responsive img-thumbnail">
+		</div>
+		<div class="caption-full">
+		<h3><%=food.name %><span class="float-right"><h2>Star Rating</h2>
+            <div class="stars">
+                <form action="">
+                  <input class="star star-5" id="star-5" type="radio" name="star"/>
+                  <label class="star star-5" for="star-5"></label>
+                  <input class="star star-4" id="star-4" type="radio" name="star"/>
+                  <label class="star star-4" for="star-4"></label>
+                  <input class="star star-3" id="star-3" type="radio" name="star"/>
+                  <label class="star star-3" for="star-3"></label>
+                  <input class="star star-2" id="star-2" type="radio" name="star"/>
+                  <label class="star star-2" for="star-2"></label>
+                  <input class="star star-1" id="star-1" type="radio" name="star"/>
+                  <label class="star star-1" for="star-1"></label>
+                </form>
+              </div>
+			</span>
+		</h3>	
+        <p><%= food.description %></p>
+        <% if(currentUser && food.author.id.equals(currentUser._id)) {%>
+        <div><a class="btn btn-warning" href="/foodpost/<%=food._id %>/edit">Edit</a>
+            <form class="delete-form" action="/foodpost/<%= food._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-xs btn-danger">Delete</button>
+            </form>
+        </div>
+        <%}%>
+		</div>	
+		
+			<div class="row bootstrap snippets">
+    <div class="col-md-6 col-md-offset-2 col-sm-12">
+        <div class="comment-wrapper">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4>
+						Comment Box
+					</h4>
+                </div>
+                    <br>
+				<a class="btn btn-info pull-right" href="/foodpost/<%=food._id%>/comments/new">Add Comment</a>
+                    <div class="clearfix"></div>
+                    <hr>
+		<%food.comments.forEach(function(comment){%>
+                    <ul class="media-list">
+                        <li class="media">
+                            <a href="#" class="pull-left">
+                                <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+                            </a>
+                            <div class="media-body">
+                                <span class="text-muted pull-right">
+                                    <small class="text-muted">30 min ago</small>
+                                </span>
+                                <strong class="text-success">@<%=comment.author.username%></strong>
+                                <p>-<%=comment.text %></p>
+                                <% if(currentUser && food.author.id.equals(currentUser._id)) {%>
+                                <a class="btn btn-xs btn-warning" href="/foodpost/<%=food._id%>/comments/<%=comment._id%>/edit">Edit</a>
+                                <form class="delete-form" action="/foodpost/<%=food._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                    <input type="submit" value="DELETE" class="btn btn-danger btn-xs">
+                                </form>
+                                <%}%>
+							</div>
+                        </li>
+                        
+                    </ul>
+				<%})%>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+    </div>
+    
+
+	</div>
+
+<%- include("../partials/footer") %>

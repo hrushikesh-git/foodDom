@@ -1,0 +1,15 @@
+<%- include("../partials/header") %>
+<div class ="container">
+<h1>
+	Add new Comment To <%=food.name%>
+</h1>
+	
+<form action="/foodpost/<%=food._id%>/comments" method="POST">
+       <input class="form-control" type="text" name="comment[text]" placeholder="comment"> 
+       
+       <input class="btn btn-primary" type="submit">
+   </form>
+</div>
+    
+<a href="/foodpost">GoBack!</a>
+<%- include("../partials/footer") %>

@@ -1,0 +1,17 @@
+<%- include("./partials/header") %>
+<div class ="container">
+<h1>
+	SignUP 
+</h1>
+	
+<form action="/register" method="post">
+       <input class="form-control" type="text" name="username" placeholder="username"> 
+       
+	<input class="form-control" type="password" name="password" placeholder="password"> 
+       
+       <input class="btn btn-primary" type="submit">
+   </form>
+</div>
+    
+<a href="/foodpost">GoBack!</a>
+<%- include("./partials/footer") %>

@@ -1,0 +1,21 @@
+<%- include("../partials/header") %>
+<div class ="container">
+<h1>
+	Edit <%=food.name%>
+</h1>
+	
+<form action="/foodpost/<%= food._id %>?_method=PUT" method="POST">
+       <input class="form-control" type="text" name="foodpost[name]" value="<%=food.name%>">
+  
+       <input class="form-control" type="text" name="foodpost[image]" value="<%=food.image%>">
+	
+       <input class="form-control" type="text" name="foodpost[location]" value="<%=food.location%>"> 
+	
+       <input class="form-control" type="text" name="foodpost[description]" value="<%=food.description%>"> 
+       
+       <input class="btn btn-primary" type="submit">
+   </form>
+</div>
+    
+<a href="/foodpost">GoBack!</a>
+<%- include("../partials/footer") %>
